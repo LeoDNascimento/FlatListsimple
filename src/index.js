@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {View,FlatList, Text, StyleSheet, StatusBar} from 'react-native';
+import {SafeAreaView,FlatList, Text, StyleSheet, StatusBar} from 'react-native';
 import api from './services/api';
 
 export default function App(){  
@@ -23,8 +23,9 @@ export default function App(){
             {repositorie.title}
         </Text>))}
     </View> */}
+    <SafeAreaView style={styles.container}>
     <FlatList
-    style={styles.container}
+    
     data={repositories}
     keyExtractor={repositorie=> repositorie.id}
     renderItem={({item: repositorie}) =>(
@@ -33,18 +34,20 @@ export default function App(){
         </Text>
     )}
     />
+    </SafeAreaView>
     </>
+    
     )}
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#7159d1',
-        // justifyContent: 'center',
-        // alignItems: 'center',
+         justifyContent: 'center',
+         alignItems: 'center',
     },
     title:{
-        fontSize: 120,
+        fontSize: 20,
         color: '#FFF',
         fontWeight: "bold"
     }
